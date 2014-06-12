@@ -3,6 +3,7 @@ window.addEventListener('load', initialize)
 function initialize() {
     var view = new View()
     controller = new Controller(view)
+    controller.bindListeners()
 }
 
 function Die() {}
@@ -34,13 +35,22 @@ function Controller(view) {
 
 Controller.prototype = {
     bindListeners: function() {
-        $('.btn-create').on('click', createDie)
+        console.log(" go fuck yourself")
+        $('.btn-create').on('click', this.createAndStoreDie.bind(this))
     },
 
     createDie: function() {
         var die = new Die()
+        die.initialize()
+        return die
+    },
+
+    storeDie: function(die) {
         this.dice.push(die)
     },
 
-
+    createAndStoreDie: function() {
+        var die = this.createDie()
+        this.storeDie(die)
+    }
 }
