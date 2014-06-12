@@ -1,6 +1,12 @@
-describe( "HEY Z, GO FUCK YOURSELF", function() {
+beforeEach(function() {
+  die = new Die()
+})
 
-    it( "", function() {
-        expect( "" ).toEqual( "" );
+describe( "#generateNumber", function() {
+
+    it( "should generate a random number", function() {
+        expect( die.generateNumber(1,6) ).toBeGreaterThan( 0 );
     });
+
 });
+

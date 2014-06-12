@@ -1,7 +1,15 @@
+window.addEventListener('load', initialize)
+
+function initialize() {
+  var view = new View()
+  controller = new Controller()
+}
+
 function Die() {}
 
 Die.prototype = {
-  generateNumber: function() {
+  generateNumber: function(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
   }
 }
 
