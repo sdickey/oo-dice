@@ -10,6 +10,10 @@ function Die() {}
 Die.prototype = {
   generateNumber: function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
+  },
+
+  initialize: function(min, max) {
+    this.number = this.generateNumber(1, 6)
   }
 }
 
